@@ -1,0 +1,6 @@
+build/
+dist/
+fitrd.egg-info
+**/__pycache__/
+*.npy
+.ipynb_checkpoints
