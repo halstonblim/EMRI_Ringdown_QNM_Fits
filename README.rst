@@ -5,15 +5,14 @@ This module implements the fitting algorithm described in Lim, Khanna, Apte, and
 
 Installation
 -------------
-1. Make sure to install dependencies: numpy, pandas, and `qnm <https://github.com/duetosymmetry/qnm/>`_. Also requires nose for testing
+1. Make sure to install dependencies: numpy, pandas, and `qnm <https://github.com/duetosymmetry/qnm/>`_
 2. Clone repository
 3. To install, run ``python setup.py install`` in the package directory
-4. To test installation, run ``nosetests`` in the package directory 
+4. To test installation, run ``python tests/test_fitrd.py``
 
 Potential installation issues
 
 * qnm requires numba, but numba requies numpy<1.21,>=1.17. To fix this, install a compatible version of numpy. We suggest creating a new or cloned conda environment with a compatible numpy version
-* ``nosetests`` fails due to an ImportError. This will occur if nose is installed already, but not installed in the same python environment in which pandas/numpy/qnm is installed. Make sure that all dependencies are installed in the same environment
 
 Formatting Waveform Files
 -------------------

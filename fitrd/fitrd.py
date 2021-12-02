@@ -246,6 +246,8 @@ def postprocess(time,spheroidal_coefs,t_start,t_end,t_window):
     t_max = np.min([time[-1] - t_window,t_end])
     i = np.argmin(np.abs(time - t_start))
 
+    c_amps_mean_best = None
+
     while time[i] + t_window <= t_max:
         mask = (time >= time[i]) & (time <= time[i] + t_window)
         c_amps_mean = np.mean(c_amps[mask,:],axis=0)
@@ -255,4 +257,5 @@ def postprocess(time,spheroidal_coefs,t_start,t_end,t_window):
             c_amps_mean_best = c_amps_mean
             c_phases_mean_best = np.mod(np.mean(c_phases[mask,:],axis=0),2*np.pi)
         i += 1
+    assert c_amps_mean_best is not None, "Could not find QNM amplitude, terminating"
     return c_amps_mean_best, c_phases_mean_best
