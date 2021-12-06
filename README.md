@@ -18,7 +18,8 @@ During testing, we have found several potential installation issues
 -   qnm requires numba, but numba requies numpy\<1.21,\>=1.17. To fix
     this, install a compatible version of numpy. We suggest creating a
     different python environment with a compatible numpy version
--   pip fails to install numba (numba is required by qnm). numba has a lot of dependencies that can lead to issues when not using conda (e.g. [llvimlite](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip)) We suggest following instructions on the [qnm github](https://github.com/duetosymmetry/qnm) and installing the qnm package either with conda: `conda install -c conda-forge qnm` or installing from the source by cloning the repository. After qnm is installed, `pip install fitrd` should work
+-   pip fails to install numba (numba is required by qnm). numba has a lot of dependencies that can lead to issues when not using conda (e.g. [llvmlite](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip)) We suggest following instructions on the [qnm github](https://github.com/duetosymmetry/qnm) and installing the qnm package either with conda: `conda install -c conda-forge qnm` or installing from the source by cloning the repository. After qnm is installed, `pip install fitrd` should work
+-   python 3.10 is not supported by several of the dependencies. If you have python 3.10 installed, you will have to downgrade to (or create new environment with) python >=3.7, <3.10 
 
 ## Formatting Waveform Files
 
