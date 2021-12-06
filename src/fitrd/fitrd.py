@@ -238,6 +238,7 @@ def postprocess(time,spheroidal_coefs,t_start,t_end,t_window):
     Take average of spheroidal coefs over many fitting times
     to extract QNM. Procedure described in Lim,Khanna,Apte,Hughes (2019)
     """
+    assert t_end - t_start >= t_window, "Need at least one averaging period"
     c_amps = np.abs(spheroidal_coefs)
     c_phases = np.unwrap(np.angle(spheroidal_coefs))
 
