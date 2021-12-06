@@ -165,7 +165,7 @@ def load_waveforms(wavefiles, spherical_modes, k_ell, t_cut=0):
         # Find file containing desired mode
         for j,wavefile in enumerate(wavefiles):
             if [l,m] in filemodelist[j]:
-                data = pd.read_csv(wavefile,delim_whitespace=True,header=None,
+                data = pd.read_csv(wavefile,delim_whitespace=True,header=None,engine='python',
                                    usecols=[0,1+2*(l-np.abs(m)),2+2*(l-np.abs(m))]).to_numpy()
                 time,h_plus,h_cross = data[data[:,0] >= t_cut].T
                 wavedatas.append(h_plus - 1j * h_cross)
