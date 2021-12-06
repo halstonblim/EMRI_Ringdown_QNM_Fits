@@ -9,20 +9,20 @@ demonstrate how to use this code
 Installation
 ------------
 
-1.  Make sure to install dependencies: numpy, pandas, and
-    [qnm](https://github.com/duetosymmetry/qnm/)
-2.  Clone repository
-3.  To install, run `python setup.py install` in the package directory
-4.  To test installation, run `python tests/test_fitrd.py`
+Dependencies include [numpy](https://numpy.org/), [pandas](https://pandas.pydata.org/), and [qnm](https://github.com/duetosymmetry/qnm)
 
-Potential installation issues
+To install, run `pip install fitrd` in the package directory. To test installation, run `python tests/test_fitrd.py`
+
+During testing, we have found several potential installation issues
 
 -   qnm requires numba, but numba requies numpy\<1.21,\>=1.17. To fix
     this, install a compatible version of numpy. We suggest creating a
-    new or cloned conda environment with a compatible numpy version
+    different python environment with a compatible numpy version
+-   pip fails to install numba (numba is required by qnm). numba has a lot of dependencies that can lead to issues when not using conda (e.g. [llvimlite](https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip)) We suggest following instructions on the [qnm github](https://github.com/duetosymmetry/qnm) and installing the qnm package either with conda: `conda install -c conda-forge qnm` or installing from the source by cloning the repository. After qnm is installed, `pip install fitrd` should work
 
-Formatting Waveform Files \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--The
-current version of the code expects the waveform data to be formatted in
+## Formatting Waveform Files
+
+The current version of the code expects the waveform data to be formatted in
 a particular way. The outgoing radiation must be decomposed into a set
 of -2-spin-weighted spherical harmonic modes,
 `h(l,m) = h+(l,m) - 1j * hx(l,m)`. Each waveform file must contain all

@@ -14,7 +14,7 @@ class Test_fitrd(unittest.TestCase):
         m = 1
         k_ell = 4
 
-        traj_data = pd.read_csv(traj_filepath, delim_whitespace=True,usecols=[0,1],names=['t','r'],skiprows=240000)
+        traj_data = pd.read_csv(traj_filepath, delim_whitespace=True,usecols=[0,1],names=['t','r'],skiprows=240000,engine='python')
         tlrcross = np.interp(fitrd.lrradius(a), traj_data['r'].loc[::-1],traj_data['t'].loc[::-1])
 
         spherical_modes, time, spheroidal_coefs = fitrd.solve_system(m,k_ell,tlrcross,[wave_filepath],
