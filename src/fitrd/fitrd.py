@@ -5,7 +5,7 @@ spherical waveform modes of a given azimuthal index m.
 e.g. given h22, h32, h42 spherical modes, these routines will compute the
 m = 2, l = 2,3,4 QNMs and m = -2, l = 2,3,4 mirror QNMS
 """
-from os.path import exists
+import os
 import numpy as np
 import pandas as pd
 import qnm
@@ -84,7 +84,7 @@ def preparesystem(m,a,k_ell,cachedir=None,overwrite=False):
     - alphasystem[lp][l], matrix of coefficients
     """
     if (cachedir is not None and overwrite is False and
-        exists(f'{cachedir}/prepare_system_{m}_{a:.4f}_{k_ell}.npy')):
+        os.path.exists(f'{cachedir}/prepare_system_{m}_{a:.4f}_{k_ell}.npy')):
 
         alphasystem = np.load(f'{cachedir}/prepare_system_{m}_{a:.4f}_{k_ell}.npy')
 
@@ -108,6 +108,8 @@ def preparesystem(m,a,k_ell,cachedir=None,overwrite=False):
         alphasystem = calculate_matrix_components(m, a, larray, lparray)
 
         if cachedir is not None:
+            if os.path.exists(cachedir) == False:
+                os.makedirs(cachedir)
             np.save(f"{cachedir}/prepare_system_{m}_{a:.4f}_{k_ell}.npy",alphasystem)
     return alphasystem
 

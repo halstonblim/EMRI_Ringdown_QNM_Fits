@@ -2,6 +2,7 @@ build/
 dist/
 fitrd.egg-info
 __pycache__/
+precomputed_weights/
 *.npy
 .ipynb_checkpoints
 *eggs/
